@@ -70,13 +70,18 @@ gulp.task('html', function(){
 	.pipe(gulp.dest('dist'))
 	.pipe(browserSync.reload({stream:true}))
 })
+gulp.task('images', function(){
+	gulp.src('src/img/*')
+	.pipe(gulp.dest('dist/img'))
+	.pipe(browserSync.reload({stream:true}))
+})
 
 /* watch sass, js and html files, doing different things with each. */
-gulp.task('default', ['html','sass', 'css', 'serve'], function() {
+gulp.task('default', ['html','sass', 'css', 'serve','images'], function() {
 	/* watch sass, run the sass task on change. */
 	gulp.watch(['src/sass/*.sass', 'src/sass/**/*.sass'], ['sass', 'css']);
 	/* watch app.js file, run the scripts task on change. */
 	gulp.watch(['src/js/*.js'], ['scripts']);
 	/* watch .html files, run the bs-reload task on change. */
-	gulp.watch(['*.html'], ['bs-reload']);
+	gulp.watch(['src/*.html'],['html']);
 });
