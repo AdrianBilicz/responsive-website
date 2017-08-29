@@ -79,7 +79,7 @@ gulp.task('images', function(){
 /* watch sass, js and html files, doing different things with each. */
 gulp.task('default', ['html','sass', 'css', 'serve','images'], function() {
 	/* watch sass, run the sass task on change. */
-	gulp.watch(['src/sass/*.sass', 'src/sass/**/*.sass'], ['sass', 'css']);
+	gulp.watch(['src/sass/**/*.sass','src/sass/*.sass'], ['sass', 'css']);
 	/* watch app.js file, run the scripts task on change. */
 	gulp.watch(['src/js/*.js'], ['scripts']);
 	/* watch .html files, run the bs-reload task on change. */
